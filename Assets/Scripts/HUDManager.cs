@@ -18,7 +18,6 @@ public class HUDManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     #endregion

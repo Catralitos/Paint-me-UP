@@ -128,7 +128,6 @@ public class CheckForColor : MonoBehaviour
             }
         }
 
-        //TODO ver como tratar esta cor
         return new Color(rValue / randomPositions.Count, gValue / randomPositions.Count,
             bValue / randomPositions.Count);
     }
