@@ -56,7 +56,7 @@
     "m_Dropdowns": [],
     "m_CategoryData": [
         {
-            "m_Id": "29ceaab7b0ee493aa7a6aaee5348cfc8"
+            "m_Id": "5758facb295a4ff1a6e7992f1d01f053"
         }
     ],
     "m_Nodes": [
@@ -2069,63 +2069,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
-    "m_ObjectId": "29ceaab7b0ee493aa7a6aaee5348cfc8",
-    "m_Name": "",
-    "m_ChildObjectList": [
-        {
-            "m_Id": "8a76ef779b4c44a1a4242ab46eca8b7c"
-        },
-        {
-            "m_Id": "41271c3c5f484ca2a435c65087a81705"
-        },
-        {
-            "m_Id": "e97cb9b7b5564bc9857e7669e2d0b82f"
-        },
-        {
-            "m_Id": "3c9e15eb8c374e0495f36ea3d57473ab"
-        },
-        {
-            "m_Id": "863351f5ceea4c998ef51baab6dd758b"
-        },
-        {
-            "m_Id": "2c6f3ce4bba145b09c0a22fced0d7f85"
-        },
-        {
-            "m_Id": "7bf270fe91494824b4209d2dc1faae23"
-        },
-        {
-            "m_Id": "b160a6374fb04a77b114bb611b8c55e4"
-        },
-        {
-            "m_Id": "0de750b9c41b4a5daef844a1599f5ac7"
-        },
-        {
-            "m_Id": "2871f666316541908d110962eef07f02"
-        },
-        {
-            "m_Id": "b5cc7f6f25194a778cb438f45fbbce66"
-        },
-        {
-            "m_Id": "8e760635099b4147956bb9600d13cac2"
-        },
-        {
-            "m_Id": "01612b2f09a24a9c9879c83799445b96"
-        },
-        {
-            "m_Id": "55edcb19ba1d459dbb3c027e66abbc1e"
-        },
-        {
-            "m_Id": "f6677799b193415b8be7686b658a6e85"
-        },
-        {
-            "m_Id": "1bf9c5e6f5c34360a490da1c94e6a7c1"
-        }
-    ]
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.SamplerStateMaterialSlot",
     "m_ObjectId": "2b1bbd45db6d4485a7c2656133ce6b29",
     "m_Id": 0,
@@ -3504,6 +3447,63 @@
         "z": 0.0,
         "w": 0.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.CategoryData",
+    "m_ObjectId": "5758facb295a4ff1a6e7992f1d01f053",
+    "m_Name": "",
+    "m_ChildObjectList": [
+        {
+            "m_Id": "8a76ef779b4c44a1a4242ab46eca8b7c"
+        },
+        {
+            "m_Id": "41271c3c5f484ca2a435c65087a81705"
+        },
+        {
+            "m_Id": "e97cb9b7b5564bc9857e7669e2d0b82f"
+        },
+        {
+            "m_Id": "3c9e15eb8c374e0495f36ea3d57473ab"
+        },
+        {
+            "m_Id": "863351f5ceea4c998ef51baab6dd758b"
+        },
+        {
+            "m_Id": "2c6f3ce4bba145b09c0a22fced0d7f85"
+        },
+        {
+            "m_Id": "7bf270fe91494824b4209d2dc1faae23"
+        },
+        {
+            "m_Id": "b160a6374fb04a77b114bb611b8c55e4"
+        },
+        {
+            "m_Id": "0de750b9c41b4a5daef844a1599f5ac7"
+        },
+        {
+            "m_Id": "2871f666316541908d110962eef07f02"
+        },
+        {
+            "m_Id": "b5cc7f6f25194a778cb438f45fbbce66"
+        },
+        {
+            "m_Id": "8e760635099b4147956bb9600d13cac2"
+        },
+        {
+            "m_Id": "01612b2f09a24a9c9879c83799445b96"
+        },
+        {
+            "m_Id": "55edcb19ba1d459dbb3c027e66abbc1e"
+        },
+        {
+            "m_Id": "f6677799b193415b8be7686b658a6e85"
+        },
+        {
+            "m_Id": "1bf9c5e6f5c34360a490da1c94e6a7c1"
+        }
+    ]
 }
 
 {

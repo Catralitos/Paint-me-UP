@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,12 +29,18 @@ public class HUDManager : MonoBehaviour
     
     private WebCamTexture _webCamTexture;
     public RawImage rawImage;
+
+    public List<ParticleSystem> particles;
     
     // Start is called before the first frame update
     private void Start()
     {
         _webCamTexture = new WebCamTexture();
         rawImage.texture = _webCamTexture;
+        foreach (ParticleSystem p in particles)
+        {
+            p.Play();
+        }
     }
 
     public void EnableWebcam()
