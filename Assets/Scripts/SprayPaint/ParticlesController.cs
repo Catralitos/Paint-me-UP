@@ -1,10 +1,9 @@
-// Code adapted from https://github.com/mixandjam/Splatoon-Ink
-// Comments mine to help me understand/modify code
-
 using System.Collections.Generic;
+using Painting;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
-namespace Painting
+namespace SprayPaint
 {
     public class ParticlesController: MonoBehaviour{
         public Color paintColor;
@@ -25,13 +24,14 @@ namespace Painting
             //paintColor = c;
         }
 
-        void OnParticleCollision(GameObject other) {
+        private void OnParticleCollision(GameObject other) {
             int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
 
             Paintable p = other.GetComponent<Paintable>();
-            if(p != null){
+            if (p != null){
                 for  (int i = 0; i< numCollisionEvents; i++){
                     Vector3 pos = collisionEvents[i].intersection;
+                    Debug.Log(pos);
                     float radius = Random.Range(minRadius, maxRadius);
                     PaintManager.Instance.Paint(p, pos, radius, hardness, strength, paintColor);
                 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +23,7 @@ public class HUDManager : MonoBehaviour
 
     #endregion
 
-    
+    public List<ParticleSystem> particles;
     public GameObject webcamTextureCanvas;
     public GameObject colorPickingCanvas;
     
@@ -34,6 +35,10 @@ public class HUDManager : MonoBehaviour
     {
         _webCamTexture = new WebCamTexture();
         rawImage.texture = _webCamTexture;
+        foreach (ParticleSystem p in particles)
+        {
+            p.Play();
+        }
     }
 
     public void EnableWebcam()
