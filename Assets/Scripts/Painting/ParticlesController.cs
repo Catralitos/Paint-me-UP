@@ -26,7 +26,7 @@ namespace Painting
         }
 
         void OnParticleCollision(GameObject other) {
-            Debug.Log("Hit " + gameObject.name);
+            Debug.Log("Hit " + other.name);
             int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
 
             Paintable p = other.GetComponent<Paintable>();
