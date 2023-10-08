@@ -14763,7 +14763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1695bbecb2c6dce4481ec7a19b96dc57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintColor: {r: 0, g: 0, b: 0, a: 0}
+  paintColor: {r: 1, g: 0, b: 0, a: 1}
   minRadius: 0.05
   maxRadius: 0.2
   strength: 1
@@ -14785,7 +14785,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7579612151162749497
 Transform:
   m_ObjectHideFlags: 0

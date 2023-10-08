@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -49,10 +50,25 @@ public class SceneManager : MonoBehaviour
         }        
         // And enable only the right part
         EnableRightPart();
+        StartCoroutine(nameof(Countdown));
+    }
+
+    private IEnumerator Countdown () {
+        int counter = 3;
+        initialCountdownText.text = counter.ToString();
+        while (counter > 0) {
+            yield return new WaitForSeconds (1);
+            counter--;
+            initialCountdownText.text = counter.ToString();
+        }
+        initialCountdownText.text = "GO";
+        yield return new WaitForSeconds (1);
+        StartGame();
     }
     
     private void StartGame()
     {
+        initialCountdownText.gameObject.SetActive(false);
         _gameStarted = true;
         HUDManager.Instance.EnableColorDetectionHUD();
     }
@@ -123,6 +139,7 @@ public class SceneManager : MonoBehaviour
     {
         HUDManager.Instance.DisableHUD();
         EnableAllParts();
+        objectRevealText.gameObject.SetActive(true);
     }
     
     private void LoseGame()
