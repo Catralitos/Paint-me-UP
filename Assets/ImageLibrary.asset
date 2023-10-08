@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
   m_Name: ImageLibrary
   m_EditorClassIdentifier: 
-  m_GuidLow: 0
-  m_GuidHigh: 0
+  m_GuidLow: 4629797682775845115
+  m_GuidHigh: 15498520416620983424
   m_DataStore:
     m_Storage: []
   m_Images:
@@ -23,7 +23,17 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 16745520511723649695
       m_GuidHigh: 11548131376885500091
+    m_Size: {x: 0.0054, y: 0.0084942}
+    m_SpecifySize: 0
+    m_Name: Cube
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4896078481425573177
+      m_GuidHigh: 10131358423834602171
+    m_SerializedTextureGuid:
+      m_GuidLow: 12868050011715228950
+      m_GuidHigh: 3603344510157409993
     m_Size: {x: 0, y: 0}
     m_SpecifySize: 0
-    m_Name: HiddenBlock
+    m_Name: Cube
     m_Texture: {fileID: 0}

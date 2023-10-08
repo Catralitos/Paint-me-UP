@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,37 +21,41 @@ public class HUDManager : MonoBehaviour
     }
 
     #endregion
-
     
-    public GameObject webcamTextureCanvas;
-    public GameObject colorPickingCanvas;
+    [SerializeField] private GameObject colorPickingCanvas;
+    [SerializeField] private GameObject paintingCanvas;
     
-    private WebCamTexture _webCamTexture;
-    public RawImage rawImage;
-
-    public List<ParticleSystem> particles;
+    [Space]
     
-    // Start is called before the first frame update
+    [HideInInspector] public WebCamTexture webcamTexture;
+    [SerializeField] private RawImage rawImage;
+    
     private void Start()
     {
-        _webCamTexture = new WebCamTexture();
-        rawImage.texture = _webCamTexture;
-        foreach (ParticleSystem p in particles)
-        {
-            p.Play();
-        }
+        // Render the camera output to a rendertexture
+        webcamTexture = new WebCamTexture();
+        rawImage.texture = webcamTexture;
+        webcamTexture.Play();
+        
+        //Set both canvas to inactive
+        DisableHUD();
     }
 
-    public void EnableWebcam()
+    public void EnableColorDetectionHUD()
     {
-        webcamTextureCanvas.SetActive(true);
-        _webCamTexture.Play();
-    }
-
-    public void DisableWebcam()
-    {
-        webcamTextureCanvas.SetActive(false);
-        _webCamTexture.Stop();
+        paintingCanvas.SetActive(false);
+        colorPickingCanvas.SetActive(true);
     }
     
+    public void EnablePaintingHUD()
+    {
+        colorPickingCanvas.SetActive(false);
+        paintingCanvas.SetActive(true);
+    }
+
+    public void DisableHUD()
+    {
+        colorPickingCanvas.SetActive(false);
+        paintingCanvas.SetActive(false);
+    }
 }

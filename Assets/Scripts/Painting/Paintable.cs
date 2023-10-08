@@ -58,12 +58,5 @@ namespace Painting
             //Initialize the textures
             PaintManager.Instance.InitTextures(this);
         }
-
-        private void OnDisable(){
-            _maskRenderTexture.Release();
-            _supportTexture.Release();
-            _uvIslandsRenderTexture.Release();
-            _extendIslandsRenderTexture.Release();
-        }
     }
 }

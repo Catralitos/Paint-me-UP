@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -7,12 +5,7 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARTrackedImageManager))]
 public class SpawnOnTrackedImage : MonoBehaviour
 {
-
     private ARTrackedImageManager _trackedImageManager;
-
-    public GameObject prefabToSpawn;
-
-    private Dictionary<string, GameObject> _spawnedPrefabs = new Dictionary<string, GameObject>();
     
     // Start is called before the first frame update
     private void Awake()
@@ -37,25 +30,25 @@ public class SpawnOnTrackedImage : MonoBehaviour
         {
             string imageName = trackedImage.referenceImage.name;
 
-            if (prefabToSpawn.name == imageName && !_spawnedPrefabs.ContainsKey(imageName))
+            GameObject prefabToSpawn = SceneManager.Instance.prefabToPaint;
+            GameObject spawnedPrefab = SceneManager.Instance.spawnedPrefab;
+            
+            if (prefabToSpawn.name == imageName && spawnedPrefab == null)
             {
                 GameObject spawnedObject = Instantiate(prefabToSpawn, trackedImage.transform);
-                _spawnedPrefabs[imageName] = spawnedObject;
+                SceneManager.Instance.spawnedPrefab = spawnedObject;
+                SceneManager.Instance.StartCountdown();
             }
         }
 
         foreach (ARTrackedImage trackedImage in args.updated)
         {
-            _spawnedPrefabs[trackedImage.referenceImage.name].SetActive(trackedImage.trackingState == TrackingState.Tracking);
+            SceneManager.Instance.spawnedPrefab.SetActive(trackedImage.trackingState == TrackingState.Tracking);
         }
         
         foreach (ARTrackedImage trackedImage in args.removed)
         {
-            //May not want to destroy so I can keep game progress still. 
-            _spawnedPrefabs[trackedImage.referenceImage.name].SetActive(false);
-            //Destroy(_spawnedPrefabs[trackedImage.referenceImage.name]);
-            //_spawnedPrefabs.Remove(trackedImage.referenceImage.name);
+            SceneManager.Instance.spawnedPrefab.SetActive(false);
         }
-        
     }
 }
