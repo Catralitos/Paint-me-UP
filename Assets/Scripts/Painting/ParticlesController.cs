@@ -27,7 +27,6 @@ namespace Painting
             Paintable p = other.GetComponent<Paintable>();
             if (p != null){         
                 for (int i = 0; i< numCollisionEvents; i++){
-                    Debug.Log("Colidiu");
                     Vector3 pos = _collisionEvents[i].intersection;
                     float radius = Random.Range(minRadius, maxRadius);
                     PaintManager.Instance.Paint(p, pos, radius, hardness, strength, SceneManager.Instance.currentColor);

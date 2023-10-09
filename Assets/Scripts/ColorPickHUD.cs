@@ -67,7 +67,7 @@ public class ColorPickHUD : MonoBehaviour
         for (int i = 0; i < numColorChecks - 1; i++)
         {
             // Add a random position that is located within the cross hair
-            randomPositions.Add(Vector2Int.RoundToInt(screenCenter + Random.insideUnitCircle * 50));
+            randomPositions.Add(Vector2Int.RoundToInt(screenCenter + Random.insideUnitCircle * colorCheckCrosshair.sprite.rect.width));
         }
         
         float rValue = 0;

@@ -1,15 +1,11 @@
-using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
 
 [RequireComponent(typeof(ARTrackedImageManager))]
 public class SpawnOnTrackedImage : MonoBehaviour
 {
     private ARTrackedImageManager _trackedImageManager;
 
-    public TextMeshProUGUI statusText;
     
     // Start is called before the first frame update
     private void Awake()
@@ -43,24 +39,5 @@ public class SpawnOnTrackedImage : MonoBehaviour
                 SceneManager.Instance.StartCountdown();
             }
         }
-
-        /*foreach (ARTrackedImage trackedImage in args.updated)
-        {
-            statusText.text = trackedImage.trackingState.ToString();
-            SceneManager.Instance.spawnedPrefab.SetActive(trackedImage.trackingState == TrackingState.Tracking);
-
-        }
-        
-        foreach (ARTrackedImage trackedImage in args.removed)
-        {
-            SceneManager.Instance.spawnedPrefab.SetActive(false);
-        }*/
-    }
-
-    private void Update()
-    {
-        /*if (SceneManager.Instance.spawnedPrefab == null) return;
-        
-        _trackedImageManager.*/
     }
 }
