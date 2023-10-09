@@ -79,7 +79,7 @@ namespace Painting
         }
 
 
-        public void Paint(Paintable paintable, Vector3 pos, float radius = 1f, float hardness = .5f, float strength = .5f, Color? color = null){
+        public void Paint(Paintable paintable, Vector3 pos, float radius = 1f, float hardness = 1f, float strength = 1f, Color? color = null){
             // Get the properties of the object to be painted
             RenderTexture mask = paintable.GetMask();
             RenderTexture uvIslands = paintable.GetUVIslands();

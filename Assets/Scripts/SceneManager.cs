@@ -14,6 +14,7 @@ public class SceneManager : MonoBehaviour
          if (Instance == null)
          {
              Instance = this;
+             currentColor = new Color(1, 1, 1, 0);
          }
          else
          {
@@ -30,8 +31,8 @@ public class SceneManager : MonoBehaviour
     [HideInInspector] public Color currentColor;
     [Space]
     [SerializeField] private List<ParticleSystem> particleSystems;
+    private List<Material> _particleMaterials;
     [Space] 
-    public GameObject prefabToPaint;
     [HideInInspector] public int currentRound;
     [HideInInspector] public GameObject spawnedPrefab;
     
@@ -41,13 +42,22 @@ public class SceneManager : MonoBehaviour
     
     public void StartCountdown()
     {
+        currentRound = 1;
         // This is called when the prefab is spawned on the marker
         _prefabParts = new List<GameObject>();
         // We save the children
         for (int i = 0; i < spawnedPrefab.transform.childCount; i++)
         {
             _prefabParts.Add(spawnedPrefab.transform.GetChild(i).gameObject);
-        }        
+        }
+
+        _particleMaterials = new List<Material>();
+        
+        foreach (ParticleSystem p in particleSystems)
+        {
+            Renderer r = p.gameObject.GetComponent<Renderer>();
+            if (r.material != null) _particleMaterials.Add(r.material);
+        }
         // And enable only the right part
         EnableRightPart();
         initialCountdownText.gameObject.SetActive(true);
@@ -122,6 +132,11 @@ public class SceneManager : MonoBehaviour
 
     public void EnableParticles()
     {
+        foreach (Material m in _particleMaterials)
+        {
+            m.color = currentColor;
+        }
+
         foreach (ParticleSystem p in particleSystems)
         {
             p.Play();

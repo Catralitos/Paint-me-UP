@@ -18,7 +18,7 @@ public class PaintingHUD : MonoBehaviour
     private void OnEnable()
     {
         // Let the player know the color they are painting with
-        currentSelectedColor.color = SceneManager.Instance.currentColor;
+        currentSelectedColor.color = SceneManager.Instance != null ? SceneManager.Instance.currentColor : new Color(1,1,1,0);
     }
 
     private static void SwitchToColorPicker()

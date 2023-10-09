@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9006569696014837357}
   - component: {fileID: 1962510427523572012}
   - component: {fileID: 4855853557407505527}
-  - component: {fileID: 5208572624367125423}
+  - component: {fileID: 4389724082986360945}
   m_Layer: 0
   m_Name: Part5
   m_TagString: Untagged
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extendsIslandOffset: 1
---- !u!64 &5208572624367125423
-MeshCollider:
+--- !u!135 &4389724082986360945
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -116,10 +116,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Radius: 0.49999997
+  m_Center: {x: 0, y: -0.00000023841858, z: 0}
 --- !u!1 &1949904773392650254
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +610,7 @@ GameObject:
   - component: {fileID: 484764072476884770}
   m_Layer: 0
   m_Name: ModelToSpawn
-  m_TagString: Untagged
+  m_TagString: Trackable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

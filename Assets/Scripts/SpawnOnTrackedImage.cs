@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
@@ -33,30 +34,33 @@ public class SpawnOnTrackedImage : MonoBehaviour
         {
             string imageName = trackedImage.referenceImage.name;
             
-            GameObject prefabToSpawn = SceneManager.Instance.prefabToPaint;
             GameObject spawnedPrefab = SceneManager.Instance.spawnedPrefab;
             
-            if (prefabToSpawn.name == imageName && spawnedPrefab == null)
+            if (_trackedImageManager.trackedImagePrefab.name == imageName && spawnedPrefab == null)
             {
-                GameObject spawnedObject = Instantiate(prefabToSpawn, trackedImage.transform.position, trackedImage.transform.rotation, trackedImage.transform);
+                GameObject spawnedObject = GameObject.FindWithTag("Trackable");
                 SceneManager.Instance.spawnedPrefab = spawnedObject;
                 SceneManager.Instance.StartCountdown();
             }
         }
 
-        foreach (ARTrackedImage trackedImage in args.updated)
+        /*foreach (ARTrackedImage trackedImage in args.updated)
         {
             statusText.text = trackedImage.trackingState.ToString();
             SceneManager.Instance.spawnedPrefab.SetActive(trackedImage.trackingState == TrackingState.Tracking);
-            SceneManager.Instance.spawnedPrefab.transform.position = trackedImage.transform.position;
-            SceneManager.Instance.spawnedPrefab.transform.rotation = trackedImage.transform.rotation;
-            //statusText.text = trackedImage.trackingState.ToString() + " at " + trackedImage.transform.position + " with object at " + SceneManager.Instance.spawnedPrefab.transform.position;
 
         }
         
         foreach (ARTrackedImage trackedImage in args.removed)
         {
             SceneManager.Instance.spawnedPrefab.SetActive(false);
-        }
+        }*/
+    }
+
+    private void Update()
+    {
+        /*if (SceneManager.Instance.spawnedPrefab == null) return;
+        
+        _trackedImageManager.*/
     }
 }

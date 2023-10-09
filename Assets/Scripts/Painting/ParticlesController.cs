@@ -7,34 +7,30 @@ using UnityEngine;
 namespace Painting
 {
     public class ParticlesController: MonoBehaviour{
-        public Color paintColor;
     
-        public float minRadius = 0.05f;
-        public float maxRadius = 0.2f;
-        public float strength = 1;
-        public float hardness = 1;
+        public float minRadius = 0.001f;
+        public float maxRadius = 0.005f;
+        public float strength = 0.1f;
+        public float hardness = 0.1f;
         [Space]
-        ParticleSystem part;
-        List<ParticleCollisionEvent> collisionEvents;
+        private ParticleSystem _part;
+        private List<ParticleCollisionEvent> _collisionEvents;
 
-        void Start(){
-            part = GetComponent<ParticleSystem>();
-            collisionEvents = new List<ParticleCollisionEvent>();
-            //var pr = part.GetComponent<ParticleSystemRenderer>();
-            //Color c = new Color(pr.material.color.r, pr.material.color.g, pr.material.color.b, .8f);
-            //paintColor = c;
+        private void Start(){
+            _part = GetComponent<ParticleSystem>();
+            _collisionEvents = new List<ParticleCollisionEvent>();
         }
 
-        void OnParticleCollision(GameObject other) {
-            Debug.Log("Hit " + other.name);
-            int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
+        private void OnParticleCollision(GameObject other) {
+            int numCollisionEvents = _part.GetCollisionEvents(other, _collisionEvents);
 
             Paintable p = other.GetComponent<Paintable>();
-            if(p != null){
-                for  (int i = 0; i< numCollisionEvents; i++){
-                    Vector3 pos = collisionEvents[i].intersection;
+            if (p != null){         
+                for (int i = 0; i< numCollisionEvents; i++){
+                    Debug.Log("Colidiu");
+                    Vector3 pos = _collisionEvents[i].intersection;
                     float radius = Random.Range(minRadius, maxRadius);
-                    PaintManager.Instance.Paint(p, pos, radius, hardness, strength, paintColor);
+                    PaintManager.Instance.Paint(p, pos, radius, hardness, strength, SceneManager.Instance.currentColor);
                 }
             }
         }
