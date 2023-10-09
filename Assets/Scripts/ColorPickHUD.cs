@@ -9,6 +9,7 @@ public class ColorPickHUD : MonoBehaviour
     [SerializeField] private Image colorCheckCrosshair;
     [SerializeField] private int numColorChecks;
     [Space] 
+    [SerializeField] private Image colorPickReticle;
     [SerializeField] private Image currentSelectedColor;
     [Space] 
     [SerializeField] private Button checkColorButton;
@@ -67,7 +68,7 @@ public class ColorPickHUD : MonoBehaviour
         for (int i = 0; i < numColorChecks - 1; i++)
         {
             // Add a random position that is located within the cross hair
-            randomPositions.Add(Vector2Int.RoundToInt(screenCenter + Random.insideUnitCircle * 50));
+            randomPositions.Add(Vector2Int.RoundToInt(screenCenter + Random.insideUnitCircle * colorPickReticle.sprite.rect.width));
         }
         
         float rValue = 0;
