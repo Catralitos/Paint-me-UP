@@ -58,6 +58,8 @@ public class ColorPickHUD : MonoBehaviour
         int x = camTexture.width / 2;
         int y = camTexture.height / 2;
         Vector2Int screenCenter = new Vector2Int(x, y);
+        
+        //return camTexture.GetPixel(screenCenter.x, screenCenter.y);
 
         // Create a list to hold random points where we will also draw the color from to form an average
         List<Vector2Int> randomPositions = new List<Vector2Int> { screenCenter };
@@ -65,7 +67,7 @@ public class ColorPickHUD : MonoBehaviour
         for (int i = 0; i < numColorChecks - 1; i++)
         {
             // Add a random position that is located within the cross hair
-            randomPositions.Add(Vector2Int.RoundToInt(screenCenter + Random.insideUnitCircle * colorCheckCrosshair.sprite.rect.width));
+            randomPositions.Add(Vector2Int.RoundToInt(screenCenter + Random.insideUnitCircle * 50));
         }
         
         float rValue = 0;

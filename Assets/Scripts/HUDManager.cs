@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +30,7 @@ public class HUDManager : MonoBehaviour
     
     [HideInInspector] public WebCamTexture webcamTexture;
     [SerializeField] private RawImage rawImage;
+
     
     private void Start()
     {

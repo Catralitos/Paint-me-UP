@@ -50,6 +50,7 @@ public class SceneManager : MonoBehaviour
         }        
         // And enable only the right part
         EnableRightPart();
+        initialCountdownText.gameObject.SetActive(true);
         StartCoroutine(nameof(Countdown));
     }
 
