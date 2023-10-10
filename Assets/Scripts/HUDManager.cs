@@ -1,7 +1,5 @@
-using System;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
 
 public class HUDManager : MonoBehaviour
 {
@@ -15,6 +13,10 @@ public class HUDManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            // Render the camera output to a render texture
+            if (Camera.main == null) return;
+            _cameraBackground = Camera.main.gameObject.GetComponent<ARCameraBackground>();
+            _cameraManager = Camera.main.gameObject.GetComponent<ARCameraManager>();
         }
         else
         {
@@ -29,30 +31,36 @@ public class HUDManager : MonoBehaviour
     
     [Space]
     
-    [HideInInspector] public WebCamTexture webcamTexture;
-    [SerializeField] private RawImage rawImage;
+    public RenderTexture renderTexture;
 
-    [SerializeField] private TextMeshProUGUI debugText;
+    private ARCameraBackground _cameraBackground;
+    private ARCameraManager _cameraManager;
+    
     private void Start()
     {
-        // Render the camera output to a rendertexture
-        webcamTexture = new WebCamTexture
-        {
-            deviceName = WebCamTexture.devices[^1].name
-        };
-        rawImage.texture = webcamTexture;
-        webcamTexture.Play();
-        
         //Set both canvas to inactive
         DisableHUD();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        debugText.text = webcamTexture.deviceName + " - " + webcamTexture.isPlaying + " - " +
-                         webcamTexture.didUpdateThisFrame + webcamTexture;
+        _cameraManager.frameReceived += OnCameraFrameReceived;
     }
-
+    
+    private void OnDisable()
+    {
+        _cameraManager.frameReceived -= OnCameraFrameReceived;
+    }
+    
+ 
+    private void OnCameraFrameReceived(ARCameraFrameEventArgs eventArgs)
+    {
+        foreach (Texture2D t in eventArgs.textures)
+        {
+            Graphics.Blit(t, renderTexture, _cameraBackground.material);
+        }
+    }
+    
     public void EnableColorDetectionHUD()
     {
         paintingCanvas.SetActive(false);

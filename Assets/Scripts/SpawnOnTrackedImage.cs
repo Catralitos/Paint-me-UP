@@ -5,6 +5,7 @@ using UnityEngine.XR.ARFoundation;
 public class SpawnOnTrackedImage : MonoBehaviour
 {
     private ARTrackedImageManager _trackedImageManager;
+
     
     // Start is called before the first frame update
     private void Awake()
