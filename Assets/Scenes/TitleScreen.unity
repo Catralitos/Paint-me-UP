@@ -1138,6 +1138,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4047936791988750287, guid: 98efcd432df938249bd3103dcf4a8cb3,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047936791988750287, guid: 98efcd432df938249bd3103dcf4a8cb3,
+        type: 3}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 711181024d8b7584bb668983b9072bcd, type: 3}
+    - target: {fileID: 4047936791988750287, guid: 98efcd432df938249bd3103dcf4a8cb3,
+        type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047936791988750287, guid: 98efcd432df938249bd3103dcf4a8cb3,
+        type: 3}
+      propertyPath: sounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047936791988750287, guid: 98efcd432df938249bd3103dcf4a8cb3,
+        type: 3}
+      propertyPath: sounds.Array.data[5].volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6602838140929010741, guid: 98efcd432df938249bd3103dcf4a8cb3,
         type: 3}
       propertyPath: m_Name

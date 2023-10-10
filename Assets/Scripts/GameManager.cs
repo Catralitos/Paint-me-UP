@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
+[RequireComponent(typeof(AudioManager))]
 public class GameManager : MonoBehaviour
 {
     #region SingleTon
@@ -12,6 +16,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null)
         {
+            audioManager = GetComponent<AudioManager>();
             Instance = this;
         }
         else
@@ -25,9 +30,34 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public List<int> beatenLevels;
 
+    [HideInInspector] public AudioManager audioManager;
+    
     private void Start()
     {
         beatenLevels = new List<int>();
+        audioManager.Play("MenuMusic");
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        if (arg0.buildIndex < 2)
+        {
+            if (audioManager != null) audioManager.Play("MenuMusic");
+        }
+        else
+        {
+            if (audioManager != null) audioManager.Stop("MenuMusic");
+        }
     }
 
     public void BeatLevel(int sceneIndex)

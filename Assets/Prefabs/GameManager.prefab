@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6924969614598112712}
   - component: {fileID: 8248708612015361657}
+  - component: {fileID: 4047936791988750287}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,3 +46,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beatenLevels: 
+--- !u!114 &4047936791988750287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602838140929010741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9aad587126bd744a09e14caf780fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: MenuMusic
+    clip: {fileID: 8300000, guid: d7d8959c77f999649905b44336d58670, type: 3}
+    volume: 0.2
+    spatialBlend: 0
+    pitch: 1
+    loop: 1
+    fadeIn: 0
+    source: {fileID: 0}
+  - name: GameMusic
+    clip: {fileID: 8300000, guid: 300226bff92be6841924c5e34fc0fd66, type: 3}
+    volume: 0.2
+    spatialBlend: 0
+    pitch: 1
+    loop: 1
+    fadeIn: 0
+    source: {fileID: 0}
+  - name: Start
+    clip: {fileID: 8300000, guid: 36273e498f7938646a697b9608bed055, type: 3}
+    volume: 0.2
+    spatialBlend: 0
+    pitch: 1
+    loop: 0
+    fadeIn: 0
+    source: {fileID: 0}
+  - name: Clear1
+    clip: {fileID: 8300000, guid: 94d384fa49656304ea0a150ff7d3228b, type: 3}
+    volume: 0.2
+    spatialBlend: 0
+    pitch: 1
+    loop: 0
+    fadeIn: 0
+    source: {fileID: 0}
+  - name: Clear2
+    clip: {fileID: 8300000, guid: b361d50ab22bab94f8b293c7b6d3acc0, type: 3}
+    volume: 0.2
+    spatialBlend: 0
+    pitch: 1
+    loop: 0
+    fadeIn: 0
+    source: {fileID: 0}

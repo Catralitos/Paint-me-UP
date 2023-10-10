@@ -77,12 +77,14 @@ public class PaintingSceneManager : MonoBehaviour
             initialCountdownText.text = counter.ToString();
         }
         initialCountdownText.text = "GO";
+        GameManager.Instance.audioManager.Play("Start");
         yield return new WaitForSeconds (1);
         StartGame();
     }
     
     private void StartGame()
     {
+        GameManager.Instance.audioManager.Play("GameMusic");
         initialCountdownText.gameObject.SetActive(false);
         _gameStarted = true;
         HUDManager.Instance.EnableColorDetectionHUD();
@@ -160,6 +162,8 @@ public class PaintingSceneManager : MonoBehaviour
         EnableAllParts();
         objectRevealText.gameObject.SetActive(true);
         GameManager.Instance.BeatLevel(SceneManager.GetActiveScene().buildIndex);
+        GameManager.Instance.audioManager.Stop("GameMusic");
+        GameManager.Instance.audioManager.Play("Clear2");
         Invoke(nameof(LoadLevelSelect), 3);
     }
     
@@ -169,10 +173,12 @@ public class PaintingSceneManager : MonoBehaviour
         _gameStarted = false;
         objectRevealText.gameObject.SetActive(true);
         objectRevealText.text = "YOU LOST...";
+        GameManager.Instance.audioManager.Stop("GameMusic");
+        GameManager.Instance.audioManager.Play("GameOver");
         Invoke(nameof(LoadLevelSelect), 3);
     }
 
-    private static void LoadLevelSelect()
+    private void LoadLevelSelect()
     {
         SceneManager.LoadScene(1);
     }

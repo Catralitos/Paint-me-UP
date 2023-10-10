@@ -23,9 +23,11 @@ namespace Painting
 
         private void OnParticleCollision(GameObject other) {
             int numCollisionEvents = _part.GetCollisionEvents(other, _collisionEvents);
+            Debug.Log("Colidiu1");
 
             Paintable p = other.GetComponent<Paintable>();
             if (p != null){         
+                Debug.Log("Colidiu2");
                 for (int i = 0; i< numCollisionEvents; i++){
                     Vector3 pos = _collisionEvents[i].intersection;
                     float radius = Random.Range(minRadius, maxRadius);
