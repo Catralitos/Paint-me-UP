@@ -153,7 +153,7 @@ Camera:
   m_GameObject: {fileID: 22732919}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -306,18 +306,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &294598630 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6254151830187902379, guid: bc3ddcdc5d21bb94daf4ebd2bf9e9bce,
-    type: 3}
-  m_PrefabInstance: {fileID: 1411062187534485198}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &388525029
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,6 +747,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3885809397991813588, guid: 48cd3792398abc64995cf5d85909dae9,
+        type: 3}
+      propertyPath: hardness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885809397991813588, guid: 48cd3792398abc64995cf5d85909dae9,
+        type: 3}
+      propertyPath: strength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885809397991813588, guid: 48cd3792398abc64995cf5d85909dae9,
+        type: 3}
+      propertyPath: maxRadius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885809397991813588, guid: 48cd3792398abc64995cf5d85909dae9,
+        type: 3}
+      propertyPath: minRadius
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 3895445466360540936, guid: 48cd3792398abc64995cf5d85909dae9,
         type: 3}
       propertyPath: TrailModule.enabled
@@ -823,6 +831,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600244235190056798, guid: 48cd3792398abc64995cf5d85909dae9,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1135,11 +1148,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3170799136261693374, guid: b7f0ec381b79fe64381c2bcc250c600e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4721726151247661122, guid: b7f0ec381b79fe64381c2bcc250c600e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1245,11 +1253,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistentCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7102003446396682548, guid: b7f0ec381b79fe64381c2bcc250c600e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1263,25 +1266,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 672986377707348924, guid: 4d086c08a2469b1488747b78de462741,
-        type: 3}
-      propertyPath: textureImage
-      value: 
-      objectReference: {fileID: 294598630}
-    - target: {fileID: 672986377707348924, guid: 4d086c08a2469b1488747b78de462741,
-        type: 3}
-      propertyPath: numColorChecks
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 5277031245481551185, guid: 4d086c08a2469b1488747b78de462741,
         type: 3}
       propertyPath: m_Name
       value: ColorPickCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5277031245481551185, guid: 4d086c08a2469b1488747b78de462741,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7269547436873124550, guid: 4d086c08a2469b1488747b78de462741,
         type: 3}
@@ -1398,21 +1386,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 965861868775153253, guid: c49278bae2f61b44f9135a18dabf3070,
         type: 3}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 8400000, guid: 1ef34f35e182c5b4798dd646adc04182, type: 2}
-    - target: {fileID: 965861868775153253, guid: c49278bae2f61b44f9135a18dabf3070,
-        type: 3}
-      propertyPath: rawImage
-      value: 
-      objectReference: {fileID: 294598630}
-    - target: {fileID: 965861868775153253, guid: c49278bae2f61b44f9135a18dabf3070,
-        type: 3}
-      propertyPath: renderTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: 1ef34f35e182c5b4798dd646adc04182, type: 2}
-    - target: {fileID: 965861868775153253, guid: c49278bae2f61b44f9135a18dabf3070,
-        type: 3}
       propertyPath: paintingCanvas
       value: 
       objectReference: {fileID: 1453659205}
@@ -1426,17 +1399,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
-    - target: {fileID: 2339464125514819480, guid: c49278bae2f61b44f9135a18dabf3070,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2339464125514819480, guid: c49278bae2f61b44f9135a18dabf3070,
-        type: 3}
-      propertyPath: prefabToPaint
-      value: 
-      objectReference: {fileID: 9079637232117273898, guid: de0043e16bc6ac643aa754cd0d43a53f,
-        type: 3}
     - target: {fileID: 2339464125514819480, guid: c49278bae2f61b44f9135a18dabf3070,
         type: 3}
       propertyPath: timeLimitText
@@ -1454,27 +1416,12 @@ PrefabInstance:
       objectReference: {fileID: 1746564390}
     - target: {fileID: 2339464125514819480, guid: c49278bae2f61b44f9135a18dabf3070,
         type: 3}
-      propertyPath: particleSystems.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2339464125514819480, guid: c49278bae2f61b44f9135a18dabf3070,
-        type: 3}
       propertyPath: particleSystems.Array.data[0]
       value: 
       objectReference: {fileID: 1384503913}
     - target: {fileID: 2339464125514819480, guid: c49278bae2f61b44f9135a18dabf3070,
         type: 3}
       propertyPath: particleSystems.Array.data[1]
-      value: 
-      objectReference: {fileID: 1384503909}
-    - target: {fileID: 2339464125514819480, guid: c49278bae2f61b44f9135a18dabf3070,
-        type: 3}
-      propertyPath: particleSystems.Array.data[2]
-      value: 
-      objectReference: {fileID: 1384503909}
-    - target: {fileID: 2339464125514819480, guid: c49278bae2f61b44f9135a18dabf3070,
-        type: 3}
-      propertyPath: particleSystems.Array.data[3]
       value: 
       objectReference: {fileID: 1384503909}
     - target: {fileID: 2931963268633415140, guid: c49278bae2f61b44f9135a18dabf3070,
@@ -1640,30 +1587,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2463745558876957100, guid: 9496ba5d7ade3d14699b72636b1b1add,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2463745558876957100, guid: 9496ba5d7ade3d14699b72636b1b1add,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2463745558876957100, guid: 9496ba5d7ade3d14699b72636b1b1add,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8781743163782296205, guid: 9496ba5d7ade3d14699b72636b1b1add,
         type: 3}
       propertyPath: m_Name
       value: PaintingCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8781743163782296205, guid: 9496ba5d7ade3d14699b72636b1b1add,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

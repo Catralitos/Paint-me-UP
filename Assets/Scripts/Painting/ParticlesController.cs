@@ -29,7 +29,7 @@ namespace Painting
                 for (int i = 0; i< numCollisionEvents; i++){
                     Vector3 pos = _collisionEvents[i].intersection;
                     float radius = Random.Range(minRadius, maxRadius);
-                    PaintManager.Instance.Paint(p, pos, radius, hardness, strength, SceneManager.Instance.currentColor);
+                    PaintManager.Instance.Paint(p, pos, radius, hardness, strength, PaintingSceneManager.Instance.currentColor);
                 }
             }
         }

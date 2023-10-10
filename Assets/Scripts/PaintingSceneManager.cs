@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using HUD;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour
+public class PaintingSceneManager : MonoBehaviour
 {
     #region SingleTon
      
-     public static SceneManager Instance { get; private set; }
+     public static PaintingSceneManager Instance { get; private set; }
  
      private void Awake()
      {
@@ -31,18 +33,20 @@ public class SceneManager : MonoBehaviour
     [HideInInspector] public Color currentColor;
     [Space]
     [SerializeField] private List<ParticleSystem> particleSystems;
-    private List<Material> _particleMaterials;
-    [Space] 
-    [HideInInspector] public int currentRound;
+    
+    private List<Material> _particleMaterials;    
+    private List<GameObject> _prefabParts;
+
+    private int _currentRound;
+    
     [HideInInspector] public GameObject spawnedPrefab;
     
-    private List<GameObject> _prefabParts;
     private float _currentTimeLeft = 120;
     private bool _gameStarted;
     
     public void StartCountdown()
     {
-        currentRound = 1;
+        _currentRound = 1;
         // This is called when the prefab is spawned on the marker
         _prefabParts = new List<GameObject>();
         // We save the children
@@ -84,8 +88,6 @@ public class SceneManager : MonoBehaviour
         HUDManager.Instance.EnableColorDetectionHUD();
     }
     
-    // do coroutine
-
     private void Update()
     {
         if (!_gameStarted) return;
@@ -104,8 +106,8 @@ public class SceneManager : MonoBehaviour
     public void IncreaseRound()
     {
         DisableParticles();
-        currentRound++;
-        if (currentRound > _prefabParts.Count)
+        _currentRound++;
+        if (_currentRound > _prefabParts.Count)
         {
             WinGame();
             return;
@@ -118,7 +120,7 @@ public class SceneManager : MonoBehaviour
     {
         for (int i = 0; i < _prefabParts.Count; i++)
         {
-            _prefabParts[i].SetActive(i == currentRound - 1);
+            _prefabParts[i].SetActive(i == _currentRound - 1);
         }
     }
     
@@ -154,12 +156,23 @@ public class SceneManager : MonoBehaviour
     private void WinGame()
     {
         HUDManager.Instance.DisableHUD();
+        _gameStarted = false;
         EnableAllParts();
         objectRevealText.gameObject.SetActive(true);
+        Invoke(nameof(LoadLevelSelect), 3);
     }
     
     private void LoseGame()
     {
         HUDManager.Instance.DisableHUD();
+        _gameStarted = false;
+        objectRevealText.gameObject.SetActive(true);
+        objectRevealText.text = "YOU LOST...";
+        Invoke(nameof(LoadLevelSelect), 3);
+    }
+
+    private static void LoadLevelSelect()
+    {
+        SceneManager.LoadScene(1);
     }
 }

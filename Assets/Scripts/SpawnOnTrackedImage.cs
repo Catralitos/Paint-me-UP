@@ -30,13 +30,18 @@ public class SpawnOnTrackedImage : MonoBehaviour
         {
             string imageName = trackedImage.referenceImage.name;
             
-            GameObject spawnedPrefab = SceneManager.Instance.spawnedPrefab;
+            GameObject spawnedPrefab = PaintingSceneManager.Instance.spawnedPrefab;
             
             if (_trackedImageManager.trackedImagePrefab.name == imageName && spawnedPrefab == null)
             {
                 GameObject spawnedObject = GameObject.FindWithTag("Trackable");
-                SceneManager.Instance.spawnedPrefab = spawnedObject;
-                SceneManager.Instance.StartCountdown();
+                PaintingSceneManager.Instance.spawnedPrefab = spawnedObject;
+                PaintingSceneManager.Instance.StartCountdown();
+            }
+            else
+            {
+                GameObject spawnedObject = GameObject.FindWithTag("Trackable");
+                Destroy(spawnedObject);
             }
         }
     }

@@ -53,10 +53,6 @@ MonoBehaviour:
   particleSystems:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  prefabToPaint: {fileID: 9079637232117273898, guid: de0043e16bc6ac643aa754cd0d43a53f,
-    type: 3}
   currentRound: 0
   spawnedPrefab: {fileID: 0}
 --- !u!114 &965861868775153253
@@ -73,8 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorPickingCanvas: {fileID: 0}
   paintingCanvas: {fileID: 0}
-  webcamTexture: {fileID: 0}
-  rawImage: {fileID: 0}
+  renderTexture: {fileID: 8400000, guid: 1ef34f35e182c5b4798dd646adc04182, type: 2}
 --- !u!114 &976516078327174781
 MonoBehaviour:
   m_ObjectHideFlags: 0
