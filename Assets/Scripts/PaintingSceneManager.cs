@@ -159,6 +159,7 @@ public class PaintingSceneManager : MonoBehaviour
         _gameStarted = false;
         EnableAllParts();
         objectRevealText.gameObject.SetActive(true);
+        GameManager.Instance.BeatLevel(SceneManager.GetActiveScene().buildIndex);
         Invoke(nameof(LoadLevelSelect), 3);
     }
     
