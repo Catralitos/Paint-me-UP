@@ -13,7 +13,8 @@ public class ColorPickHUD : MonoBehaviour
     [Space] 
     [SerializeField] private Button checkColorButton;
     [SerializeField] private Button confirmColorButton;
-    
+
+    [SerializeField] private RawImage textureImage;
     private void Start()
     {
        // Add function to the buttons 
@@ -36,20 +37,27 @@ public class ColorPickHUD : MonoBehaviour
 
     private void CheckColorAheadWebcam()
     {
+        
         // Get the texture from the webcam texture
         // It's always active, but not rendered by the camera
-        WebCamTexture webcamTexture = HUDManager.Instance.webcamTexture;
-        
-        // Convert to a Texture2D
-        Texture2D texture2D = new Texture2D(webcamTexture.width, webcamTexture.height);
-        texture2D.SetPixels32(webcamTexture.GetPixels32());
+        RenderTexture imageTexture = HUDManager.Instance.renderTexture;
         
         // Get the colors
-        Color c = GetColorFromTexture(texture2D);
+        Color c = GetColorFromTexture(ToTexture2D(imageTexture));
 
         // Set the color as the new paint color and the selected color in the hud
         SceneManager.Instance.currentColor = c;
         currentSelectedColor.color = c;
+    }
+
+    private static Texture2D ToTexture2D(RenderTexture rTex)
+    {
+        Texture2D tex = new Texture2D(rTex.width, rTex.height, TextureFormat.RGB24, false);
+        // ReadPixels looks at the active RenderTexture.
+        RenderTexture.active = rTex;
+        tex.ReadPixels(new Rect(0, 0, rTex.width, rTex.height), 0, 0);
+        tex.Apply();
+        return tex;
     }
 
     private Color GetColorFromTexture(Texture2D camTexture)
@@ -59,8 +67,6 @@ public class ColorPickHUD : MonoBehaviour
         int y = camTexture.height / 2;
         Vector2Int screenCenter = new Vector2Int(x, y);
         
-        //return camTexture.GetPixel(screenCenter.x, screenCenter.y);
-
         // Create a list to hold random points where we will also draw the color from to form an average
         List<Vector2Int> randomPositions = new List<Vector2Int> { screenCenter };
 
